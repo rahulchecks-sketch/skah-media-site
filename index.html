@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SKAAH Media - AI, Climate & Space</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,sans-serif;background:#f0f2f5}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+.header{background:linear-gradient(135deg,#1a237e,#0d47a1);color:#fff;padding:20px 0;text-align:center}
+.logo{font-size:28px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:10px}
+.nav{margin:15px 0;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.nav a{color:rgba(255,255,255,0.9);text-decoration:none;padding:8px 16px;border-radius:20px;background:rgba(255,255,255,0.1);transition:0.3s}
+.nav a:hover{background:rgba(255,255,255,0.2)}
+.breaking{background:#d32f2f;color:#fff;padding:10px;text-align:center}
+.status-bar{background:#fff;padding:15px;border-radius:10px;margin:20px 0;display:flex;gap:30px;flex-wrap:wrap;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.status-item{display:flex;align-items:center;gap:8px}
+.status-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.online{background:#4caf50;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.featured{background:#fff;padding:25px;border-radius:10px;margin:20px 0;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin:20px 0}
+.card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:0.3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 4px 20px rgba(0,0,0,0.15)}
+.card img{width:100%;height:180px;object-fit:cover}
+.card-content{padding:15px}
+.card-content h3{font-size:16px;margin-bottom:8px}
+.card-content h3 a{color:#1a1a2e;text-decoration:none;transition:0.3s}
+.card-content h3 a:hover{color:#1a237e}
+.meta{color:#999;font-size:13px;display:flex;gap:15px;margin-top:10px;flex-wrap:wrap}
+.badge{display:inline-block;padding:2px 12px;border-radius:12px;font-size:11px;font-weight:700}
+.breaking-badge{background:#d32f2f;color:#fff}
+.analysis-badge{background:#1976d2;color:#fff}
+.feature-badge{background:#388e3c;color:#fff}
+.footer{background:#0d1442;color:#fff;padding:40px 0 20px;margin-top:40px;text-align:center}
+.footer a{color:rgba(255,255,255,0.7);text-decoration:none;margin:0 15px;transition:0.3s}
+.footer a:hover{color:#fff}
+@media(max-width:768px){.status-bar{flex-direction:column;align-items:center}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="logo"><span>🚀</span> SKAAH Media <span style="font-size:12px;opacity:.7">AI • Climate • Space</span></div>
+<nav class="nav">
+<a href="/">🏠 Home</a>
+<a href="#ai">🤖 AI</a>
+<a href="#climate">🌍 Climate</a>
+<a href="#space">🚀 Space</a>
+</nav>
+</header>
+<div class="breaking">🔴 LIVE: Click any story to read the full article</div>
+<div class="container">
+<div class="status-bar">
+<div class="status-item"><span class="status-dot online"></span> System: <strong>Online</strong></div>
+<div class="status-item">🤖 Agents: <strong>3 Active</strong></div>
+<div class="status-item">📰 Articles: <strong>12</strong></div>
+<div class="status-item">🔄 Updated: <strong id="time">Now</strong></div>
+</div>
+
+<!-- FEATURED STORIES -->
+<div class="featured" id="home">
+<h2 style="margin-bottom:15px;">🌟 Featured Stories</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+<div>
+<img src="https://via.placeholder.com/600x300/1a237e/ffffff?text=🚀+SKAAH+Media+Launch" style="width:100%;border-radius:8px">
+<h3 style="margin:10px 0"><a href="/article?id=1" style="color:#1a1a2e;text-decoration:none;">🚀 SKAAH Media Launches AI-Powered News Platform</a></h3>
+<p>Multi-agent system curating news from 12+ sources in real-time.</p>
+<div style="margin-top:10px;color:#999;font-size:14px">📅 Just now • 👁️ 1.2K views <span class="badge breaking-badge">Breaking</span></div>
+</div>
+<div>
+<div style="background:#f8f9fa;padding:15px;border-radius:8px;margin-bottom:10px">
+<h4><a href="/article?id=2" style="color:#1a1a2e;text-decoration:none;">🌍 Historic Climate Agreement Reached</a></h4>
+<span style="color:#999;font-size:12px">2 hours ago • 856 views</span>
+</div>
+<div style="background:#f8f9fa;padding:15px;border-radius:8px;margin-bottom:10px">
+<h4><a href="/article?id=3" style="color:#1a1a2e;text-decoration:none;">🚀 SpaceX Launches Commercial Lunar Mission</a></h4>
+<span style="color:#999;font-size:12px">4 hours ago • 2.3K views</span>
+</div>
+<div style="background:#f8f9fa;padding:15px;border-radius:8px">
+<h4><a href="/article?id=4" style="color:#1a1a2e;text-decoration:none;">🤖 OpenAI Announces AI Model Breakthrough</a></h4>
+<span style="color:#999;font-size:12px">6 hours ago • 1.8K views</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- AI SECTION -->
+<h2 style="margin:30px 0 20px" id="ai">🤖 Artificial Intelligence</h2>
+<div class="grid">
+<div class="card">
+<img src="https://via.placeholder.com/400x200/00d4ff/ffffff?text=AI+News">
+<div class="card-content">
+<h3><a href="/article?id=5">AI Agents Auto-Updating SKAAH Media</a></h3>
+<p>Multi-agent system processes 12+ RSS feeds hourly.</p>
+<div class="meta">📅 1h ago • 👁️ 342 <span class="badge feature-badge">Feature</span></div>
+</div>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/400x200/00d4ff/ffffff?text=AI+News">
+<div class="card-content">
+<h3><a href="/article?id=6">GPT-5 with Human-Level Reasoning</a></h3>
+<p>40% improvement in complex problem-solving.</p>
+<div class="meta">📅 3h ago • 👁️ 1.2K <span class="badge breaking-badge">Breaking</span></div>
+</div>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/400x200/00d4ff/ffffff?text=AI+News">
+<div class="card-content">
+<h3><a href="/article?id=7">DeepMind Achieves New Milestone</a></h3>
+<p>Human-level performance in protein folding.</p>
+<div class="meta">📅 5h ago • 👁️ 856 <span class="badge analysis-badge">Analysis</span></div>
+</div>
+</div>
+</div>
+
+<!-- CLIMATE SECTION -->
+<h2 style="margin:30px 0 20px" id="climate">🌍 Climate & Environment</h2>
+<div class="grid">
+<div class="card">
+<img src="https://via.placeholder.com/400x200/00e676/ffffff?text=Climate+News">
+<div class="card-content">
+<h3><a href="/article?id=8">COP28 Landmark Fossil Fuel Agreement</a></h3>
+<p>World leaders commit to transition away from fossil fuels.</p>
+<div class="meta">📅 2h ago • 👁️ 2.1K <span class="badge breaking-badge">Breaking</span></div>
+</div>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/400x200/00e676/ffffff?text=Climate+News">
+<div class="card-content">
+<h3><a href="/article?id=9">Renewable Energy Hits Record 30%</a></h3>
+<p>Solar and wind surpass coal in many markets.</p>
+<div class="meta">📅 4h ago • 👁️ 1.4K <span class="badge feature-badge">Feature</span></div>
+</div>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/400x200/00e676/ffffff?text=Climate+News">
+<div class="card-content">
+<h3><a href="/article?id=10">New Carbon Capture Technology</a></h3>
+<p>Breakthrough could remove CO2 at unprecedented scale.</p>
+<div class="meta">📅 6h ago • 👁️ 967 <span class="badge analysis-badge">Analysis</span></div>
+</div>
+</div>
+</div>
+
+<!-- SPACE SECTION -->
+<h2 style="margin:30px 0 20px" id="space">🚀 Space Technology</h2>
+<div class="grid">
+<div class="card">
+<img src="https://via.placeholder.com/400x200/ff6d00/ffffff?text=Space+News">
+<div class="card-content">
+<h3><a href="/article?id=11">SpaceX Commercial Lunar Mission</a></h3>
+<p>Falcon 9 delivers payload to Moon successfully.</p>
+<div class="meta">📅 4h ago • 👁️ 3.2K <span class="badge breaking-badge">Breaking</span></div>
+</div>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/400x200/ff6d00/ffffff?text=Space+News">
+<div class="card-content">
+<h3><a href="/article?id=12">NASA Mars Sample Return Mission</a></h3>
+<p>Mission to bring samples by 2030 approved.</p>
+<div class="meta">📅 8h ago • 👁️ 1.8K <span class="badge feature-badge">Feature</span></div>
+</div>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/400x200/ff6d00/ffffff?text=Space+News">
+<div class="card-content">
+<h3><a href="/article?id=13">ESA Discovers Earth-Like Exoplanet</a></h3>
+<p>Planet 20 light-years away could support life.</p>
+<div class="meta">📅 12h ago • 👁️ 2.5K <span class="badge analysis-badge">Analysis</span></div>
+</div>
+</div>
+</div>
+
+</div>
+<footer class="footer">
+<div style="max-width:1100px;margin:0 auto;padding:0 20px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px">
+<div><h3>🚀 SKAAH Media</h3><p>Future of News - AI, Climate & Space</p><p style="opacity:0.7;font-size:14px">🤖 Powered by AI Agents</p></div>
+<div><h4>Categories</h4><a href="#ai">🤖 AI</a><a href="#climate">🌍 Climate</a><a href="#space">🚀 Space</a></div>
+<div><h4>Connect</h4><a href="#">🐦 Twitter</a><a href="#">💼 LinkedIn</a><a href="#">📧 Email</a></div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;opacity:0.7">© 2024 SKAAH Media. 🤖 Auto-updated by AI agents</div>
+</div>
+</footer>
+<script>setInterval(()=>{document.getElementById('time').textContent=new Date().toLocaleTimeString()},1000)</script>
+</body>
+</html>
