@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SKAAH Media - Article</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,sans-serif;background:#f0f2f5}
+.container{max-width:800px;margin:0 auto;padding:20px}
+.header{background:linear-gradient(135deg,#1a237e,#0d47a1);color:#fff;padding:15px 0;text-align:center}
+.logo{font-size:24px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:10px}
+.nav{margin:10px 0;display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+.nav a{color:rgba(255,255,255,0.9);text-decoration:none;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.1)}
+.nav a:hover{background:rgba(255,255,255,0.2)}
+.article-card{background:#fff;padding:40px;border-radius:16px;box-shadow:0 2px 20px rgba(0,0,0,0.08);margin:30px 0}
+.back-link{display:inline-block;margin-bottom:20px;color:#4a6cf7;text-decoration:none;font-weight:600}
+.back-link:hover{text-decoration:underline}
+.article-title{font-size:2rem;line-height:1.3;margin-bottom:15px}
+.article-meta{color:#999;font-size:0.95rem;margin-bottom:25px;padding-bottom:20px;border-bottom:1px solid #eee}
+.article-body{font-size:1.1rem;line-height:1.8;color:#333}
+.article-body p{margin-bottom:1.2rem}
+.footer{background:#0d1442;color:#fff;padding:30px 0 20px;margin-top:40px;text-align:center}
+.footer a{color:rgba(255,255,255,0.7);text-decoration:none;margin:0 15px}
+@media(max-width:768px){.article-card{padding:20px}.article-title{font-size:1.5rem}}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="logo"><span>🚀</span> SKAAH Media</div>
+<nav class="nav">
+<a href="/">🏠 Home</a>
+<a href="/#ai">🤖 AI</a>
+<a href="/#climate">🌍 Climate</a>
+<a href="/#space">🚀 Space</a>
+</nav>
+</header>
+
+<div class="container">
+    <div class="article-card">
+        <a href="/" class="back-link">← Back to Home</a>
+        
+        <h1 class="article-title" id="article-title">Loading article...</h1>
+        
+        <div class="article-meta">
+            <span id="article-date">Date</span> • 
+            <span id="article-views">Views</span> • 
+            <span id="article-category">Category</span>
+        </div>
+        
+        <div class="article-body" id="article-body">
+            <p>Loading content...</p>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+<div style="max-width:1100px;margin:0 auto;padding:0 20px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;margin-bottom:20px">
+<div><h4>Categories</h4><a href="/#ai">AI</a><a href="/#climate">Climate</a><a href="/#space">Space</a></div>
+<div><h4>Connect</h4><a href="#">Twitter</a><a href="#">LinkedIn</a></div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:15px;opacity:0.7">© 2024 SKAAH Media</div>
+</div>
+</footer>
+
+<script>
+// ===== ARTICLE DATABASE =====
+// Add all your articles here with full content
+const articles = {
+    1: {
+        title: "🚀 SKAAH Media Launches AI-Powered News Platform",
+        date: "December 15, 2024",
+        views: "1,247 views",
+        category: "Breaking",
+        content: `
+            <p><strong>SKAAH Media</strong> has launched its revolutionary AI-powered news platform, utilizing a multi-agent system to curate content from over 12 sources in real-time. The platform covers Artificial Intelligence, Climate Change, and Space Technology.</p>
+            
+            <p>The system employs three specialized agents that work together to fetch, summarize, and analyze news, providing readers with accurate, up-to-date information with sentiment analysis.</p>
+            
+            <p>"This is a game-changer for how we consume news," said the SKAAH Media team. "Our AI agents work around the clock to bring you the most relevant stories from across the globe."</p>
+            
+            <p>The platform is designed to be fully automated, with agents running every hour to ensure content is always fresh and relevant.</p>
+        `
+    },
+    2: {
+        title: "🌍 Historic Climate Agreement Reached at COP28",
+        date: "December 15, 2024",
+        views: "856 views",
+        category: "Climate",
+        content: `
+            <p><strong>World leaders at COP28</strong> have reached a landmark agreement to transition away from fossil fuels, marking a historic moment in climate action. The deal includes commitments to triple renewable energy capacity and double energy efficiency by 2030.</p>
+            
+            <p>This agreement represents the first time in history that all nations have explicitly committed to moving away from fossil fuels, signaling a new era in global climate policy.</p>
+            
+            <p>"This is a victory for our planet and future generations," said the UN Secretary-General. "But we must now focus on implementation."</p>
+        `
+    },
+    3: {
+        title: "🚀 SpaceX Launches First Commercial Lunar Mission",
+        date: "December 15, 2024",
+        views: "2,341 views",
+        category: "Space",
+        content: `
+            <p><strong>SpaceX</strong> has successfully launched its first commercial lunar mission, marking a new era in space exploration. The Falcon 9 rocket delivered a payload to the Moon's surface, paving the way for future commercial lunar operations.</p>
+            
+            <p>This mission represents a significant milestone in the commercialization of space, with private companies now playing a leading role in lunar exploration.</p>
+            
+            <p>"This is just the beginning," said Elon Musk. "We're going to make space accessible to everyone."</p>
+        `
+    },
+    4: {
+        title: "🤖 OpenAI Announces GPT-5 with Human-Level Reasoning",
+        date: "December 15, 2024",
+        views: "1,823 views",
+        category: "AI",
+        content: `
+            <p><strong>OpenAI</strong> has unveiled GPT-5, a revolutionary AI model that demonstrates human-level reasoning capabilities. The new model shows a 40% improvement in complex problem-solving tasks compared to its predecessor.</p>
+            
+            <p>GPT-5's advanced reasoning abilities open up new possibilities in fields ranging from scientific research to creative writing, while also raising important questions about AI safety and ethics.</p>
+            
+            <p>"We've achieved something truly remarkable," said OpenAI's CEO. "But we must proceed with caution and responsibility."</p>
+        `
+    },
+    5: {
+        title: "🤖 AI Agents Auto-Updating SKAAH Media",
+        date: "December 15, 2024",
+        views: "342 views",
+        category: "AI",
+        content: `
+            <p><strong>SKAAH Media</strong> is now fully automated, with AI agents fetching and updating news from multiple RSS feeds every hour. This ensures that readers always have access to the latest information.</p>
+            
+            <p>The system uses advanced natural language processing to summarize articles and analyze sentiment, providing a comprehensive news experience.</p>
+            
+            <p>"Our agents work tirelessly so you don't have to," said the development team. "We're bringing the future of news to you today."</p>
+        `
+    },
+    6: {
+        title: "🤖 GPT-5 with Human-Level Reasoning",
+        date: "December 15, 2024",
+        views: "1,234 views",
+        category: "AI",
+        content: `
+            <p><strong>OpenAI's GPT-5</strong> represents a quantum leap in artificial intelligence, demonstrating capabilities that were once thought to be decades away.</p>
+            
+            <p>The model can now solve complex mathematical problems, write sophisticated code, and engage in nuanced philosophical discussions.</p>
+            
+            <p>This breakthrough has implications for every industry, from healthcare to finance to education.</p>
+        `
+    },
+    7: {
+        title: "🤖 DeepMind Achieves New Milestone in Protein Folding",
+        date: "December 15, 2024",
+        views: "856 views",
+        category: "AI",
+        content: `
+            <p><strong>DeepMind</strong> has achieved a new milestone in protein folding, successfully predicting the structure of nearly all known proteins.</p>
+            
+            <p>This breakthrough will accelerate drug discovery and our understanding of diseases at a molecular level.</p>
+            
+            <p>"We're entering a new era of computational biology," said the research team.</p>
+        `
+    },
+    8: {
+        title: "🌍 COP28 Landmark Fossil Fuel Agreement",
+        date: "December 15, 2024",
+        views: "2,145 views",
+        category: "Climate",
+        content: `
+            <p><strong>COP28</strong> delivered a historic breakthrough with all nations agreeing to transition away from fossil fuels for the first time.</p>
+            
+            <p>The agreement includes specific targets for renewable energy, energy efficiency, and methane reduction.</p>
+            
+            <p>"This is the turning point we've been waiting for," said climate activists.</p>
+        `
+    },
+    9: {
+        title: "🌍 Renewable Energy Hits Record 30% of Global Electricity",
+        date: "December 15, 2024",
+        views: "1,423 views",
+        category: "Climate",
+        content: `
+            <p><strong>Renewable energy</strong> now accounts for 30% of global electricity generation, marking a significant milestone in the energy transition.</p>
+            
+            <p>Solar and wind power continue to grow rapidly, surpassing coal in many major markets.</p>
+            
+            <p>"We're seeing the future of energy unfold before our eyes," said energy analysts.</p>
+        `
+    },
+    10: {
+        title: "🌍 New Carbon Capture Technology Shows Promise",
+        date: "December 15, 2024",
+        views: "967 views",
+        category: "Climate",
+        content: `
+            <p><strong>Carbon capture technology</strong> has achieved a breakthrough, with a new system capable of removing CO2 from the atmosphere at unprecedented scale.</p>
+            
+            <p>The technology could play a crucial role in achieving net-zero emissions targets.</p>
+            
+            <p>"This is the missing piece of the climate puzzle," said the lead researcher.</p>
+        `
+    },
+    11: {
+        title: "🚀 SpaceX Commercial Lunar Mission Success",
+        date: "December 15, 2024",
+        views: "3,256 views",
+        category: "Space",
+        content: `
+            <p><strong>SpaceX</strong> has successfully completed its first commercial lunar mission, delivering payloads to the Moon's surface for private clients.</p>
+            
+            <p>The mission opens up new possibilities for commercial space exploration and lunar development.</p>
+            
+            <p>"We're making the Moon accessible to everyone," said SpaceX officials.</p>
+        `
+    },
+    12: {
+        title: "🚀 NASA Mars Sample Return Mission Gets Green Light",
+        date: "December 15, 2024",
+        views: "1,823 views",
+        category: "Space",
+        content: `
+            <p><strong>NASA</strong> has received approval for its ambitious Mars Sample Return mission, which aims to bring back samples from the red planet by 2030.</p>
+            
+            <p>The mission will help scientists understand Mars' history and potential for past life.</p>
+            
+            <p>"This is one of the most important scientific missions of our time," said NASA administrators.</p>
+        `
+    },
+    13: {
+        title: "🚀 ESA Discovers Earth-Like Exoplanet in Habitable Zone",
+        date: "December 15, 2024",
+        views: "2,541 views",
+        category: "Space",
+        content: `
+            <p><strong>ESA</strong> has discovered an Earth-like exoplanet in the habitable zone of a nearby star, just 20 light-years away.</p>
+            
+            <p>The planet could potentially support life, scientists say, and represents one of the most exciting discoveries in exoplanet research.</p>
+            
+            <p>"This is the kind of discovery we've been hoping for," said the research team.</p>
+        `
+    }
+};
+
+// ===== ARTICLE LOADING LOGIC =====
+// Get article ID from URL
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');
+
+// If no ID, default to article 1
+const articleId = id || 1;
+
+// Get the article data
+const article = articles[articleId];
+
+// Update the page with article content
+if (article) {
+    document.getElementById('article-title').textContent = article.title;
+    document.getElementById('article-date').textContent = article.date;
+    document.getElementById('article-views').textContent = article.views;
+    document.getElementById('article-category').textContent = article.category;
+    document.getElementById('article-body').innerHTML = article.content;
+    document.title = article.title + ' - SKAAH Media';
+} else {
+    document.getElementById('article-title').textContent = 'Article Not Found';
+    document.getElementById('article-body').innerHTML = `
+        <p>Sorry, this article does not exist.</p>
+        <p><a href="/" style="color:#4a6cf7;">Return to Home</a></p>
+    `;
+    document.title = 'Article Not Found - SKAAH Media';
+}
+</script>
+</body>
+</html>
